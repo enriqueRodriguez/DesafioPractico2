@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
-$dotenv->load();
+//$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
+//$dotenv->load();
 
 abstract class Model
 {
@@ -13,10 +13,10 @@ abstract class Model
 
     public function __construct()
     {
-        $this->host = $_ENV['HOST'];
-        $this->user = $_ENV['USERNAME'];
-        $this->password = $_ENV['PASSWORD'];
-        $this->db_name = $_ENV['DBNAME'];
+        $this->host = getenv('HOST');
+        $this->user = getenv('USERNAME');
+        $this->password = getenv('PASSWORD');
+        $this->db_name = getenv('DBNAME');
     }
 
     //crear conexion
